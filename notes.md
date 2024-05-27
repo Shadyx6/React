@@ -1,0 +1,1 @@
+in react, we pass props(data) from parent component to child component and we cannot directly pass the data from parent to grandchildren component, in order to do so we need to use a different context that stores data and any component that needs data will ask this context or container for the data(there are multiple ways to do this, we will be using contextAPI)
