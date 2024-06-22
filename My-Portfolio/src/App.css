@@ -1,1 +1,344 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+  html,
+  body {
+    height: 100%;
+    width: 100%;
+    background-color: #0f172a;
+  }
+  
+  @font-face {
+    font-family: "bebas";
+    src: url(/fonts/bebas.woff2);
+  }
+  @font-face {
+    font-family: "oswald";
+    src: url(/fonts/oswald.woff2);
+  }
+  @font-face {
+    font-family: "rockSalt";
+    src: url(/fonts/RockSalt-Regular.woff2);
+  }
+  @font-face {
+    font-family: "roboto";
+    src: url(/fonts/RobotoMono-VariableFont_wght.woff2);
+  }
+  #main {
+    height: 100%;
+    width: 100%;
+    font-family: "oswald";
+  }
+  .lighting {
+    height: 120rem;
+    width: 120rem;
+    position: absolute;
+    inset: 0;
+    z-index: 99999999;
+    pointer-events: none;
+    background: radial-gradient(
+      circle closest-side,
+      rgba(29, 78, 216, 0.15),
+      transparent 80%
+    );
+    transition: opacity 0.3s ease-in-out;
+  }
+  .page1 {
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0f172a;
+    overflow: hidden;
+    border: 2px solid black;
+  }
+  nav {
+    display: flex;
+    gap: 1.5rem;
+    padding: 3rem 3rem;
+    font-size: 4rem;
+    flex-direction: column;
+    color: white;
+  }
+  .navDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  section.nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  section.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  nav a {
+    font-size: 1.4rem;
+    color: white;
+    text-decoration: none;
+  }
+  .title {
+    font-weight: 200;
+    font-size: 2rem;
+    font-family: "bebas";
+    letter-spacing: 0.5px;
+  }
+  .name {
+    font-size: large;
+    font-weight: 900;
+    font-family: "rockSalt";
+  }
+  .vline {
+    background-color: white;
+    height: 1px;
+    width: 96.1vw;
+  }
+  
+  .content1 {
+    color: white;
+  }
+  .smallt {
+    letter-spacing: 1px;
+    font-family: "bebas";
+    font-weight: lighter;
+  }
+  .bigt {
+    font-size: 15rem;
+    font-family: "oswald";
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .title-text {
+    line-height: 18rem;
+  }
+  .left {
+    font-family: "roboto";
+    line-height: 3rem;
+  }
+  
+  .pera p {
+    line-height: 3.8rem;
+  }
+  .btn {
+    padding: 2rem 2rem;
+    height: 50px;
+    width: 247px;
+    position: relative;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  @keyframes btn2 {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-220px);
+    }
+  }
+  @keyframes btn {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-210px);
+    }
+  }
+  
+  .sliding h2 {
+    white-space: nowrap;
+    font-size: 3rem;
+  }
+  .sliding:hover {
+    animation-name: btn;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  #projects-btn h2 {
+    font-size: 3rem;
+  }
+  #projects-btn {
+    animation-name: btn2 !important;
+    gap: 22px !important;
+  }
+  .page2 {
+    background-color: #0f172a;
+  }
+  .about h1 {
+    color: rgb(81, 6, 166);
+    border-color: rgb(10, 10, 186, 0.5);
+    border-radius: 50px;
+    background-color: rgba(89, 29, 186, 0.15);
+  }
+  .typedtext {
+    font-family: "roboto";
+  }
+  .bio p {
+    color: rgb(150, 161, 192);
+  }
+  .page3 {
+    background-color: #0f172a;
+  }
+  .head {
+    font-family: "oswald";
+  }
+  
+  @media screen and (max-width: 1280px) {
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden !important;
+      position: sticky;
+    }
+    * {
+      font-size: 55%;
+    }
+  
+    .wrapper::-webkit-scrollbar {
+      display: none;
+    }
+    .wrapper {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .page1 {
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      overflow-x: hidden;
+    }
+    .content1 {
+    }
+    .lighting {
+      height: 120rem;
+      width: 120rem;
+      position: absolute;
+      inset: 0;
+      z-index: 99999999;
+      pointer-events: none;
+      background: radial-gradient(
+        circle closest-side,
+        rgba(29, 78, 216, 0.15),
+        transparent 80%
+      );
+      transition: opacity 0.3s ease-in-out;
+    }
+    nav {
+      gap: 1.5rem;
+      font-size: 2rem;
+      flex-direction: column;
+      color: white;
+    }
+    .navDiv {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    section.nav-left {
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    section.nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    nav a {
+      font-size: 1.4rem;
+      color: white;
+      text-decoration: none;
+    }
+    .title h1 {
+      font-weight: 200;
+      font-family: "bebas";
+      letter-spacing: 0.5px;
+    }
+    .name {
+      font-size: large;
+      font-weight: 900;
+      font-family: "rockSalt";
+    }
+    .right {
+      margin-top: 0 !important;
+    }
+  .title-text{
+    line-height: 17rem;
+  }
+    .btn {
+      padding: 1rem 1rem;
+      height: 40px;
+      width: 140px;
+      font-size: 1px !important;
+      position: relative;
+      border-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    @keyframes btn2 {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-140px);
+      }
+    }
+    @keyframes btn {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-130px);
+      }
+    }
+    .btn h2{
+      font-size: 2rem;
+    }
+    .sliding h2 {
+      white-space: nowrap;
+    }
+    #projects-btn h2{
+      font-size: 2rem;
+    }
+    .sliding:hover {
+      animation-name: btn;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+  
+  @media only screen and (max-width: 1024px) {
+    * {
+      font-size: 40%;
+    }
+  }
+  @media only screen and (max-width: 1372px) {
+      .pera{
+        width: 630px;
+      }
+      .pera p{
+          font-size: 2rem;
+      }
+      .shifted{
+          font-size: 2rem;
+      }
+    }
+    
