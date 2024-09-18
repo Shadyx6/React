@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@tinymce/tinymce-react": "^5.1.1",
+    "appwrite": "^15.0.0",
+    "react-hook-form": "^7.52.0",
+    "react-router-dom": "^6.23.1"
+  }
+}
