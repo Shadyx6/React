@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       )
      },
      {
-      path: '/edit-blog:slug',
+      path: '/edit-blog/:slug',
       element: (
         <Protector authentication>
           {" "}
@@ -57,11 +57,11 @@ const router = createBrowserRouter([
       )
      },
      {
-      path : '/post:slug',
+      path : '/blog/:slug',
       element: <Post />
      },
      {
-      path: '/all-blogs',
+      path: '/my-blogs',
       element: (
         <Protector authentication>
           {" "}

@@ -7,11 +7,13 @@ import authService from './appwrite/auth'
 import { Login,Logout } from './store/authSlice'
 import { Header, Footer } from './Components'
 import { Outlet } from 'react-router-dom'
+import LoadingSpinner from './Components/Loader'
+
 function App() {
   const [Loading, setLoading] = useState(true)
   const dispatch = useDispatch() 
 
-
+ 
 useEffect(() => {
     authService.isLoggedIn()
         .then((userData) => {
@@ -24,18 +26,28 @@ useEffect(() => {
         .catch((error) => {
             console.log("Error during session check:", error);
         })
-        .finally(() => setLoading(false)); // Ensure Loading state is updated
+        .finally(() => setLoading(false)); 
 }, [dispatch]);
 
 
- return !Loading ? (
-  <div className='h-screen w-screen content-between bg-green-200'>
-    <Header/>
-    <Outlet />
-        <Footer/>
-  </div>
- ) : null
-  
+return (
+    <>
+      {Loading ? (
+        <>
+        <Header />
+         <LoadingSpinner /> 
+         <Footer />
+        </>
+       
+      ) : (
+        <div className="h-screen w-screen content-between">
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      )}
+    </>
+  );
 }
 
 export default App

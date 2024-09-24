@@ -24,23 +24,24 @@ export class AuthClass {
             console.log(error)
         }
     }
-    async login({ email, password }) {
-        try {
-            return await this.account.createEmailPasswordSession(email, password)
-        } catch (error) {
-            throw Error;
-
-        }
+   async login({ email, password }) {
+    try {
+        return await this.account.createEmailSession(email, password);
+    } catch (error) {
+        console.log(error.message)
+        throw error; 
     }
+}
+
     async isLoggedIn() {
         try {
-          const loggedIn = await this.account.get();
-          return loggedIn
-        } catch (err) {
-            console.log(err)
-          return null;
+            return await this.account.get()
+        } catch (error) {
+            console.log("Appwrite service isLoggedin:: ", error);
+            return null
         }
-      }
+        return null
+    }
     
     async logout() {
         try {

@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux'
 import {Link, Navigate, useNavigate} from 'react-router-dom'
 import LogoutBtn from '../Logout/LogoutBtn'
 import { list } from 'postcss'
+import logo from '../../assets/logo.png'
 function Header() {
   const collapseMenuRef = useRef(null)
   function handleClick() {
@@ -23,7 +24,7 @@ function Header() {
   const Navigate = useNavigate()
   const navTags = [
     {name: 'Home', path: '/', active: true},
-    {name: 'blogs', path: '/blogs', active: authStatus},
+    {name: 'blogs', path: '/my-blogs', active: authStatus},
     {name: 'Add Blog', path: '/add-blog', active: authStatus},
     {name: 'Login', path: '/login', active: !authStatus},
     {name: 'Signup', path: '/signup',active: !authStatus},
@@ -32,8 +33,12 @@ function Header() {
   return (
    <>
    <header className='flex border-b py-4 px-4 sm:px-10 bg-white font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
-    <div className='flex flex-wrap items-center gap-5 w-full'>
-      <h1>Talents hub</h1>
+    <div className='flex flex-wrap items-center gap-3 w-full'>
+      <div className='h-20 w-20 overflow-hidden rounded-full'>
+      <img src={logo} className='h-full w-full object-cover'  alt="" />
+      </div>
+      
+      <h1>Blog bliss</h1>
   
       <div id="collapseMenu"
       ref={collapseMenuRef}
@@ -71,11 +76,11 @@ function Header() {
   
       <div className='flex lg:ml-auto max-lg:w-full'>
         <div
-          className='flex xl:w-80 max-xl:w-full bg-gray-100 px-6 py-3 rounded outline outline-transparent focus-within:outline-[#007bff] focus-within:bg-transparent'>
+          className='flex items-center justify-center xl:w-80 max-xl:w-full py-3 rounded'>
       {authStatus && (
-        <li>
-          <LogoutBtn/>
-        </li>
+      
+          <LogoutBtn />
+      
       )}
         </div>
       </div>

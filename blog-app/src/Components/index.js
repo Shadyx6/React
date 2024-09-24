@@ -7,6 +7,7 @@ import PostForm from "./post-form/PostForm";
 import Signup from "./Signup/Signup";
 import Card from "./Card/Card";
 import Protector from "./Protector";
+import Blog from "./Blog/Blog";
 export {
     Header,
     Footer,
@@ -16,5 +17,6 @@ export {
     PostForm,
     Signup,
     Card,
-    Protector
+    Protector,
+    Blog
  };

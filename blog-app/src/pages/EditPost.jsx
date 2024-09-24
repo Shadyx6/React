@@ -5,15 +5,21 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function EditPost() {
   const [post, setposts] = useState([]);
-  const { path } = useParams();
+  const { slug } = useParams();
+  console.log(slug)
   const navigate = useNavigate()
-    database.getOneBlog().then((post) => {
+  useEffect(() => {
+    database.getOneBlog(slug).then((post) => {
+      console.log(post)
         if(post) {
             setposts(post);
         }else{
             navigate('/')
         }
     })
+  }, [slug, navigate])
+  
+  
 
 
   return post ? (

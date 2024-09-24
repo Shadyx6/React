@@ -1,8 +1,8 @@
 import conf from '../conf/config'
 import { Client, Databases, ID, Query, Storage } from "appwrite";
 
-export class database {
-    Client = new Client();
+export class Database {
+    client = new Client();
     database;
     storage
     constructor() {
@@ -13,9 +13,11 @@ export class database {
         this.storage = new Storage(this.client)
     }
 
-    async createBlog({ title, slug, content, featImage, status, userId }) {
+    async createBlog(data) {
 
         try {
+            console.log(data)
+            const { title, slug, content, featImage, status, userId } = data
             return await this.database.createDocument(conf.databaseId, conf.collectionId, slug, {
                 title,
                 content,
@@ -28,8 +30,8 @@ export class database {
             console.log(error)
         }
     }
-    async updateBlog(slug, {
-        title, content, featImage, status
+    async updateBlog(slug, { title,
+        content, featImage, status
     }) {
         return await this.database.updateDocument(conf.databaseId, conf.collectionId, slug, {
             title,
@@ -70,8 +72,7 @@ export class database {
     // Storage Upload system 
     async uploadImage(image) {
         try {
-            await this.storage.createFile(conf.bucketId, ID.unique(), image)
-            return true
+           return await this.storage.createFile(conf.bucketId, ID.unique(), image)
         } catch (error) {
             console.log("error uploading image" + error.message)
             return false
@@ -79,7 +80,8 @@ export class database {
     }
     async getImagePreview(imageId) {
         try {
-            await this.storage.getFilePreview(conf.bucketId, imageId)
+            const src = this.storage.getFilePreview(conf.bucketId, imageId)
+            return src
         } catch (error) {
             console.log("error getImagePreview" + error.message)
         }
@@ -94,5 +96,5 @@ export class database {
         }
     }
 }
-
+const database = new Database()
 export default database
